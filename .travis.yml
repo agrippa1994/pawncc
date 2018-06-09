@@ -4,9 +4,17 @@ services:
   - docker
 
 before_install:
-  - docker build -t pawncc .
+  - docker build -t $DOCKER_USERNAME/pawncc .
   
 script:
-  - docker run -ti --rm -v $(pwd):/example pawncc pawncc /example/main.pwn -o/example/main.amx
-  - docker run -ti --rm -v $(pwd):/example pawncc pawnrun /example/main.amx
- 
+  - docker run -ti --rm -v $(pwd):/example $DOCKER_USERNAME/pawncc pawncc /example/main.pwn -o/example/main.amx
+  - docker run -ti --rm -v $(pwd):/example $DOCKER_USERNAME/pawncc pawnrun /example/main.amx
+
+deploy:
+  provider: script
+  script:  
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - docker push $DOCKER_USERNAME/pawncc
+  on:
+    branch: master
+
