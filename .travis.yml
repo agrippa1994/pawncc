@@ -1,0 +1,11 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t pawncc .
+  
+script:
+  - docker run -ti --rm -v $(pwd):/example pawncc pawncc /example/main.pwn -o/example/main.amx
+  
