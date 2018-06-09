@@ -8,4 +8,5 @@ before_install:
   
 script:
   - docker run -ti --rm -v $(pwd):/example pawncc pawncc /example/main.pwn -o/example/main.amx
-  
+  - docker run -ti --rm -v $(pwd):/example pawncc pawnrun /example/main.amx
+ 
