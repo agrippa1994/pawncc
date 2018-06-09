@@ -1,4 +1,4 @@
-PawnCC Docker Image
+PawnCC Docker Image [![Build Status](https://travis-ci.org/agrippa1994/pawncc.svg?branch=master)](https://travis-ci.org/agrippa1994/pawncc)
 =====================
 
 The Dockerfile builds an image that compiles the [PawnCC](https://github.com/compuphase/pawn) compiler.
