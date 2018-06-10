@@ -5,13 +5,19 @@ The Dockerfile builds an image that compiles the [PawnCC](https://github.com/com
 
 Usage
 -------
-* Checkout the repository
-* Change the current directory to the repository's checkout folder
-* Built the image
+* Pull the image from the official Docker registry
 ```
-docker build . -t pawncc
+docker pull agripp1994/pawncc
 ```
-* Run the image
+* Compile an application (see main.pwn)
 ```
-docker run -ti --rm pawncc
+docker run -ti --rm -v $(pwd):/example $DOCKER_USERNAME/pawncc pawncc /example/main.pwn -o/example/main.amx
+```
+* The compiler will produce an *.amx file that can be executed by the interpreter
+```
+docker run -ti --rm -v $(pwd):/example $DOCKER_USERNAME/pawncc pawnrun /example/main.amx
+```
+* If the execution succeeds the exit code will be non zero (0). Use ```$_```to verify the exit code
+```
+echo $? 
 ```
