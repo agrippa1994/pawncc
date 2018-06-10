@@ -17,7 +17,7 @@ docker run -ti --rm -v $(pwd):/example $DOCKER_USERNAME/pawncc pawncc /example/m
 ```
 docker run -ti --rm -v $(pwd):/example $DOCKER_USERNAME/pawncc pawnrun /example/main.amx
 ```
-* If the execution succeeds the exit code will be non zero (0). Use ```$_``` to verify the exit code
+* If the execution succeeds the exit code will be zero (0). Use ```$_``` to verify the exit code
 ```
 echo $? 
 ```
