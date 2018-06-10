@@ -11,11 +11,11 @@ docker pull agripp1994/pawncc
 ```
 * Compile an application (see main.pwn)
 ```
-docker run -ti --rm -v $(pwd):/example $DOCKER_USERNAME/pawncc pawncc /example/main.pwn -o/example/main.amx
+docker run -ti --rm -v $(pwd):/example agrippa1994/pawncc pawncc /example/main.pwn -o/example/main.amx
 ```
 * The compiler will produce an *.amx file that can be executed by the interpreter
 ```
-docker run -ti --rm -v $(pwd):/example $DOCKER_USERNAME/pawncc pawnrun /example/main.amx
+docker run -ti --rm -v $(pwd):/example agrippa1994/pawncc pawnrun /example/main.amx
 ```
 * If the execution succeeds the exit code will be zero (0). Use ```$?``` to verify the exit code
 ```
